@@ -7,7 +7,9 @@ libraryDependencies ++= Seq(
   anorm,
   cache,
   // ReactiveMongo dependencies
-  "org.reactivemongo" %% "reactivemongo" % "0.9" exclude("org.scala-stm", "scala-stm_2.10.0")
+  "org.reactivemongo" %% "reactivemongo" % "0.9" exclude("org.scala-stm", "scala-stm_2.10.0"),
+  // ReactiveMongo Play plugin dependencies
+  "org.reactivemongo" %% "play2-reactivemongo" % "0.9" exclude("org.scala-stm", "scala-stm_2.10.0")
 )
 
 play.Project.playScalaSettings
