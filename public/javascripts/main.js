@@ -18,5 +18,7 @@ var app = angular.module("app", ["ngResource"])
 ]);
 
 // global controller
-app.controller("AppCtrl", ["$scope", function($scope) {
+app.controller("AppCtrl", ["$scope", "$resource", "apiUrl", function($scope, $resource, apiUrl) {
+	  var Celebrities = $resource(apiUrl + "/celebrities"); // a RESTful-capable resource object
+	  $scope.celebrities = Celebrities.query();
 }]);

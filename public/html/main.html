@@ -1,3 +1,20 @@
-<div id="welcome">
-The Eventual PlayFramework-AngularJS-MongoDB Seed Project is up and running!
+<div>
+	<table>
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Website</th>
+				<th><a href="#/new"><i class="glyphicon glyphicon-plus-sign"></i></a></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="celebrity in celebrities | orderBy:'name.first'">
+				<td>{{celebrity.name.first}} {{celebrity.name.last}}</td>
+				<td><a href="{{celebrity.website}}" target="_blank">{{celebrity.website}}</a></td>
+				<td>
+				<a href="#/edit/{{project.$id}}"><i class="glyphicon glyphicon-pencil"></i></a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
 </div>
