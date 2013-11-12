@@ -1,4 +1,4 @@
 eventual
 ========
 
-The Eventual PlayFramework-AngularJS-MongoDB Seed Project
+The Eventual PlayFramework-AngularJS-Bootstrap-MongoDB Seed Project
