@@ -9,9 +9,15 @@
 	<link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
 </head>
 <body>
-	<h2>Celebrities</h2>
-	<!-- as the route changes, the AngularJS view will be dynamically rendered and populated -->
-	<div id="main" data-ng-view="view"/div>
+	<div role="main" class="container">
+		<div class="row">
+			<div class="span12">
+				<h2>Celebrities</h2>
+				<!-- as the route changes, the AngularJS view will be dynamically rendered and populated -->
+				<div data-ng-view></div>
+			</div>
+		</div>
+	</div>
 	
 	<script src="@routes.Assets.at("third/jquery/jquery-1.10.2.min.js")" type="text/javascript"></script>
 	<script src="@routes.Assets.at("third/bootstrap/js/bootstrap.min.js")" type="text/javascript"></script>

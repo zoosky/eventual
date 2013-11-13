@@ -7,7 +7,10 @@ var app = angular.module("app", ["ngResource"])
 		return $routeProvider.when("/", {
 			templateUrl: "/views/main",
 			controller: "AppCtrl"
-		}).otherwise({
+		}).when("/new", {
+			templateUrl: "/views/detail",
+			controller: "AppCtrl"
+	    }).otherwise({
 			redirectTo: "/"
 		});
 	}
@@ -17,8 +20,13 @@ var app = angular.module("app", ["ngResource"])
 	}
 ]);
 
-// global controller
-app.controller("AppCtrl", ["$scope", "$resource", "apiUrl", function($scope, $resource, apiUrl) {
-	  var Celebrities = $resource(apiUrl + "/celebrities"); // a RESTful-capable resource object
-	  $scope.celebrities = Celebrities.query();
+// the global controller
+app.controller("AppCtrl", ["$scope", "$resource", "$location", "apiUrl", function($scope, $resource, $location, apiUrl) {
+	var Celebrities = $resource(apiUrl + "/celebrities"); // a RESTful-capable resource object
+	$scope.celebrities = Celebrities.query(); // for the list of celebrities in /public/html/main.html
+
+	// the very sweet go function
+	$scope.go = function (path) {
+		$location.path(path);
+	};
 }]);
