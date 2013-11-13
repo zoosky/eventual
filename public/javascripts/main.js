@@ -6,7 +6,7 @@ var app = angular.module("app", ["ngResource"])
 	.config(["$routeProvider", function($routeProvider) {
 		return $routeProvider.when("/", {
 			templateUrl: "/views/main",
-			controller: "AppCtrl"
+			controller: "ListCtrl"
 		}).when("/new", {
 			templateUrl: "/views/detail",
 			controller: "AppCtrl"
@@ -20,13 +20,15 @@ var app = angular.module("app", ["ngResource"])
 	}
 ]);
 
-// the global controller
-app.controller("AppCtrl", ["$scope", "$resource", "$location", "apiUrl", function($scope, $resource, $location, apiUrl) {
-	var Celebrities = $resource(apiUrl + "/celebrities"); // a RESTful-capable resource object
-	$scope.celebrities = Celebrities.query(); // for the list of celebrities in /public/html/main.html
-
-	// the very sweet go function
+//the global controller
+app.controller("AppCtrl", ["$scope", "$location", function($scope, $location) {
+	// the very sweet go function is inherited to all other controllers
 	$scope.go = function (path) {
 		$location.path(path);
 	};
+}]);
+
+app.controller("ListCtrl", ["$scope", "$resource", "apiUrl", function($scope, $resource, apiUrl) {
+	var Celebrities = $resource(apiUrl + "/celebrities"); // a RESTful-capable resource object
+	$scope.celebrities = Celebrities.query(); // for the list of celebrities in /public/html/main.html
 }]);
