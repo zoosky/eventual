@@ -36,4 +36,17 @@ object Celebrities extends Controller with MongoController {
       futureList.map { celebrities => Ok(Json.toJson(celebrities)) } // convert it to a JSON and return it
     }
   }
+  
+  /** create a celebrity from the given JSON */
+  def create() = Action(parse.json) { request =>
+    Async {
+      val first = request.body.\("first").toString() // get the fields from the request
+      val last = request.body.\("last").toString()
+      val name = Name(first, last)
+      val website = request.body.\("website").toString()
+      val celebrity = Celebrity(Option(BSONObjectID.generate), name, website) // create the celebrity
+      collection.insert(celebrity).map(
+        _ => Ok(Json.toJson[Celebrity](celebrity))) // return the created celebrity in a JSON
+    }
+  }
 }
