@@ -3,10 +3,11 @@ package controllers
 import scala.concurrent.ExecutionContext.Implicits.global
 
 import models.Celebrity
+import models.Celebrity.celebrityFormat
 import models.Celebrity.CelebrityBSONReader
 import models.Celebrity.CelebrityBSONWriter
-import models.Celebrity.celebrityFormat
 import models.Name
+import models.Name.nameFormat
 import models.Name.NameBSONWriter
 import play.api.libs.json.Json
 import play.api.mvc.Action
@@ -40,10 +41,9 @@ object Celebrities extends Controller with MongoController {
   /** create a celebrity from the given JSON */
   def create() = Action(parse.json) { request =>
     Async {
-      val first = request.body.\("first").toString() // get the fields from the request
-      val last = request.body.\("last").toString()
-      val name = Name(first, last)
-      val website = request.body.\("website").toString()
+      val nameJSON = request.body.\("name")
+      val name = nameFormat.reads(nameJSON).get
+      val website = request.body.\("website").toString().replace("\"", "")
       val celebrity = Celebrity(Option(BSONObjectID.generate), name, website) // create the celebrity
       collection.insert(celebrity).map(
         _ => Ok(Json.toJson[Celebrity](celebrity))) // return the created celebrity in a JSON
