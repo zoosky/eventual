@@ -10,6 +10,9 @@ var app = angular.module("app", ["ngResource"])
 		}).when("/create", {
 			templateUrl: "/views/detail",
 			controller: "CreateCtrl"
+	    }).when("/edit/:id", {
+			templateUrl: "/views/detail",
+			controller: "EditCtrl"
 	    }).otherwise({
 			redirectTo: "/"
 		});
@@ -36,9 +39,26 @@ app.controller("ListCtrl", ["$scope", "$resource", "apiUrl", function($scope, $r
 
 // the create controller
 app.controller("CreateCtrl", ["$scope", "$resource", "$timeout", "apiUrl", function($scope, $resource, $timeout, apiUrl) {
+	// to save a celebrity
 	$scope.save = function() {
 		var CreateCelebrity = $resource(apiUrl + "/celebrities/new"); // a RESTful-capable resource object
-		CreateCelebrity.save($scope.celebrity);
+		CreateCelebrity.save($scope.celebrity); // $scope.celebrity comes from the detailForm in public/html/detail.html
 		$timeout(function() { $scope.go('/'); });
+	};
+}]);
+
+// the edit controller
+app.controller("EditCtrl", ["$scope", "$resource", "$routeParams", "$timeout", "apiUrl", function($scope, $resource, $routeParams, $timeout, apiUrl) {
+	var CertainCelebrity = $resource(apiUrl + "/celebrities/:id", {id:"@id"});
+	if ($routeParams.id) {
+		// retrieve the corresponding celebrity from the database
+		// $scope.celebrity.id.$oid is now populated so the Delete button will appear in the detailForm in public/html/detail.html
+		$scope.celebrity = CertainCelebrity.get({id: $routeParams.id});
+		$scope.dbContent = CertainCelebrity.get({id: $routeParams.id}); // this is used in the noChange function
+	}
+	
+	// decide whether to enable or not the button Save in the detailForm in public/html/detail.html 
+	$scope.noChange = function() {
+		return angular.equals($scope.celebrity, $scope.dbContent);
 	};
 }]);
