@@ -49,4 +49,14 @@ object Celebrities extends Controller with MongoController {
         _ => Ok(Json.toJson[Celebrity](celebrity))) // return the created celebrity in a JSON
     }
   }
+  
+  /** retrieve the celebrity for the given id as JSON */
+  def show(id: String) = Action(parse.empty) { request =>
+    Async {
+      val objectID = new BSONObjectID(id) // get the corresponding BSONObjectID
+      // get the celebrity having this id (there will be 0 or 1 result)
+      val futureCelebrity = collection.find(BSONDocument("_id" -> objectID)).one[Celebrity]
+      futureCelebrity.map { celebrity => Ok(Json.toJson(celebrity)) }
+    }
+  }
 }
