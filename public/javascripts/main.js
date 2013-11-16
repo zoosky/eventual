@@ -43,22 +43,29 @@ app.controller("CreateCtrl", ["$scope", "$resource", "$timeout", "apiUrl", funct
 	$scope.save = function() {
 		var CreateCelebrity = $resource(apiUrl + "/celebrities/new"); // a RESTful-capable resource object
 		CreateCelebrity.save($scope.celebrity); // $scope.celebrity comes from the detailForm in public/html/detail.html
-		$timeout(function() { $scope.go('/'); });
+		$timeout(function() { $scope.go('/'); }); // go back to public/html/main.html
 	};
 }]);
 
 // the edit controller
 app.controller("EditCtrl", ["$scope", "$resource", "$routeParams", "$timeout", "apiUrl", function($scope, $resource, $routeParams, $timeout, apiUrl) {
-	var CertainCelebrity = $resource(apiUrl + "/celebrities/:id", {id:"@id"});
+	var ShowCelebrity = $resource(apiUrl + "/celebrities/:id", {id:"@id"}); // a RESTful-capable resource object
 	if ($routeParams.id) {
 		// retrieve the corresponding celebrity from the database
 		// $scope.celebrity.id.$oid is now populated so the Delete button will appear in the detailForm in public/html/detail.html
-		$scope.celebrity = CertainCelebrity.get({id: $routeParams.id});
-		$scope.dbContent = CertainCelebrity.get({id: $routeParams.id}); // this is used in the noChange function
+		$scope.celebrity = ShowCelebrity.get({id: $routeParams.id});
+		$scope.dbContent = ShowCelebrity.get({id: $routeParams.id}); // this is used in the noChange function
 	}
 	
 	// decide whether to enable or not the button Save in the detailForm in public/html/detail.html 
 	$scope.noChange = function() {
 		return angular.equals($scope.celebrity, $scope.dbContent);
+	};
+
+	// to update a celebrity
+	$scope.save = function() {
+		var UpdateCelebrity = $resource(apiUrl + "/celebrities/" + $routeParams.id); // a RESTful-capable resource object
+		UpdateCelebrity.save($scope.celebrity); // $scope.celebrity comes from the detailForm in public/html/detail.html
+		$timeout(function() { $scope.go('/'); }); // go back to public/html/main.html
 	};
 }]);
