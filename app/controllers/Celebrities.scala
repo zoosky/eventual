@@ -46,7 +46,7 @@ object Celebrities extends Controller with MongoController {
       val website = request.body.\("website").toString().replace("\"", "")
       val celebrity = Celebrity(Option(BSONObjectID.generate), name, website) // create the celebrity
       collection.insert(celebrity).map(
-        _ => Ok(Json.toJson[Celebrity](celebrity))) // return the created celebrity in a JSON
+        _ => Ok(Json.toJson(celebrity))) // return the created celebrity in a JSON
     }
   }
   
@@ -57,6 +57,22 @@ object Celebrities extends Controller with MongoController {
       // get the celebrity having this id (there will be 0 or 1 result)
       val futureCelebrity = collection.find(BSONDocument("_id" -> objectID)).one[Celebrity]
       futureCelebrity.map { celebrity => Ok(Json.toJson(celebrity)) }
+    }
+  }
+  
+  /** update the celebrity for the given id from the JSON body */
+  def update(id: String) = Action(parse.json) { request =>
+    Async {
+      val objectID = new BSONObjectID(id) // get the corresponding BSONObjectID
+      val nameJSON = request.body.\("name")
+      val name = nameFormat.reads(nameJSON).get
+      val website = request.body.\("website").toString().replace("\"", "")
+      val modifier = BSONDocument( // create the modifier celebrity
+        "$set" -> BSONDocument(
+          "name" -> name,
+          "website" -> website))
+      collection.update(BSONDocument("_id" -> objectID), modifier).map(
+        _ => Ok(Json.toJson(Celebrity(Option(objectID), name, website)))) // return the modified celebrity in a JSON
     }
   }
 }
