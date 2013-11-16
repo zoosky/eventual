@@ -68,4 +68,11 @@ app.controller("EditCtrl", ["$scope", "$resource", "$routeParams", "$timeout", "
 		UpdateCelebrity.save($scope.celebrity); // $scope.celebrity comes from the detailForm in public/html/detail.html
 		$timeout(function() { $scope.go('/'); }); // go back to public/html/main.html
 	};
+	
+	// to delete a celebrity
+	$scope.delete = function() {
+		var DeleteCelebrity = $resource(apiUrl + "/celebrities/" + $routeParams.id); // a RESTful-capable resource object
+		DeleteCelebrity.delete(); // $scope.celebrity comes from the detailForm in public/html/detail.html
+		$timeout(function() { $scope.go('/'); }); // go back to public/html/main.html
+	};
 }]);
