@@ -75,4 +75,13 @@ object Celebrities extends Controller with MongoController {
         _ => Ok(Json.toJson(Celebrity(Option(objectID), name, website)))) // return the modified celebrity in a JSON
     }
   }
+  
+  /** delete a celebrity for the given id */
+  def delete(id: String) = Action(parse.empty) { request =>
+    Async {
+      val objectID = new BSONObjectID(id) // get the corresponding BSONObjectID
+      collection.remove(BSONDocument("_id" -> objectID)).map( // remove the celebrity
+        _ => Ok(Json.obj())).recover { case _ => InternalServerError } // and return an empty JSON while recovering from errors if any
+    }
+  }
 }
