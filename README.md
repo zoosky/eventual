@@ -2,9 +2,9 @@
 
 ## Introduction
 
-This **[CRUD](http://en.wikipedia.org/wiki/Create,_read,_update_and_delete)** seed project emerged from realizing the confusion the developers’ community has over the hearty combination:
-1) Play framework and MongoDB in the back-end.
-2) AngularJS and Bootstrap in the front-end.
+This [CRUD](http://en.wikipedia.org/wiki/Create,_read,_update_and_delete) seed project emerged from realizing the confusion the developers’ community has over the hearty combination:
+* Play framework and MongoDB in the back-end.
+* AngularJS and Bootstrap in the front-end.
 
 This seed aims at underpinning the development of future applications that adopt the mentioned combination.
 
