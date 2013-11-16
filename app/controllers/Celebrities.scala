@@ -44,7 +44,8 @@ object Celebrities extends Controller with MongoController {
       val nameJSON = request.body.\("name")
       val name = nameFormat.reads(nameJSON).get
       val website = request.body.\("website").toString().replace("\"", "")
-      val celebrity = Celebrity(Option(BSONObjectID.generate), name, website) // create the celebrity
+      val bio = request.body.\("bio").toString().replace("\"", "")
+      val celebrity = Celebrity(Option(BSONObjectID.generate), name, website, bio) // create the celebrity
       collection.insert(celebrity).map(
         _ => Ok(Json.toJson(celebrity))) // return the created celebrity in a JSON
     }
@@ -67,12 +68,14 @@ object Celebrities extends Controller with MongoController {
       val nameJSON = request.body.\("name")
       val name = nameFormat.reads(nameJSON).get
       val website = request.body.\("website").toString().replace("\"", "")
+      val bio = request.body.\("bio").toString().replace("\"", "")
       val modifier = BSONDocument( // create the modifier celebrity
         "$set" -> BSONDocument(
           "name" -> name,
-          "website" -> website))
+          "website" -> website,
+          "bio" -> bio))
       collection.update(BSONDocument("_id" -> objectID), modifier).map(
-        _ => Ok(Json.toJson(Celebrity(Option(objectID), name, website)))) // return the modified celebrity in a JSON
+        _ => Ok(Json.toJson(Celebrity(Option(objectID), name, website, bio)))) // return the modified celebrity in a JSON
     }
   }
   

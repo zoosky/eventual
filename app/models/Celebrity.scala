@@ -18,7 +18,7 @@ import play.modules.reactivemongo.json.BSONFormats.BSONObjectIDFormat
  * Author: Sari Haj Hussein
  */
 
-case class Celebrity(id: Option[BSONObjectID], name: Name, website: String)
+case class Celebrity(id: Option[BSONObjectID], name: Name, website: String, bio: String)
 
 object Celebrity {
   /** serialize/Deserialize a Celebrity into/from JSON value */
@@ -30,7 +30,8 @@ object Celebrity {
       BSONDocument(
         "_id" -> celebrity.id.getOrElse(BSONObjectID.generate),
         "name" -> celebrity.name,
-        "website" -> celebrity.website)
+        "website" -> celebrity.website,
+        "bio" -> celebrity.bio)
   }
 
   /** deserialize a Celebrity from a BSON */
@@ -39,6 +40,7 @@ object Celebrity {
       Celebrity(
         doc.getAs[BSONObjectID]("_id"),
         doc.getAs[Name]("name").get,
-        doc.getAs[String]("website").get)
+        doc.getAs[String]("website").get,
+        doc.getAs[String]("bio").get)
   }
 }

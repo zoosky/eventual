@@ -19,8 +19,13 @@
 		<span data-ng-show="detailForm.website.$error.required" class="help-inline">Required</span>
 		<span data-ng-show="detailForm.website.$error.url" class="help-inline">Not a URL</span>
 	</div>
- 
-	<br>
+	
+	<div class="control-group">
+		<label class="control-label" for="bio">Bio</label>
+		<textarea type="text" class="form-control" id="bio" name="bio" data-ng-model="celebrity.bio" placeholder="Enter bio"></textarea>
+	</div>
+
+	<br />
 	
 	<!--<a href="/" class="btn btn-default">Cancel</a>-->
 	<button data-ng-click="go('/')" class="btn btn-default">Cancel</button>
