@@ -6,39 +6,39 @@ This [CRUD](http://en.wikipedia.org/wiki/Create,_read,_update_and_delete) seed p
 * [Play framework](http://www.playframework.com/) and [MongoDB](http://www.mongodb.org/) in the back-end.
 * [AngularJS](http://angularjs.org/) and [Bootstrap](http://getbootstrap.com/) in the front-end.
 
-The aim of this seed is to underpin the development of future applications that adopt the mentioned combination.
+The aim of this seed is to underpin the development of future applications that adopt the same combination.
 
 ## Ingredients
 The seed uses the following software components:
 
-1) Play Framework 2.1.5
+1. Play Framework 2.1.5
 
-2) MongoDB 2.4.8
+2. MongoDB 2.4.8
 
-3) AngularJS 1.1.5
+3. AngularJS 1.1.5
 
-4) Bootstrap 3.0.2
+4. Bootstrap 3.0.2
 
-5) jQuery 1.10.2 (used by 4)
+5. jQuery 1.10.2 (used by 4)
 
 ## Deployment
 Follow these steps in order to deploy the seed on your machine:
 
-1) Download and extract Play Framework 2.1.5.
+1. Download and extract Play Framework 2.1.5.
 
-2) Download and extract MongoDB 2.4.8.
+2. Download and extract MongoDB 2.4.8.
 
-3) Clone the project: <code>git clone https://github.com/angyjoe/eventual.git</code>.
+3. Clone the project: <code>git clone https://github.com/angyjoe/eventual.git</code>.
 
-4) Start <code>mongod</code> (the daemon process for the MongoDB system).
+4. Start <code>mongod</code> (the daemon process for the MongoDB system).
 
-5) Create and populate the celebrities’ database using the script <code>eventual/db/script.js</code>.
+5. Create and populate the celebrities’ database using the script <code>eventual/db/script.js</code>.
 
-6) Go to the root of the project: <code>cd eventual</code>.
+6. Go to the root of the project: <code>cd eventual</code>.
 
-7) Launch Play at the default 9000 port: <code>/PATH-TO-PLAY/play run</code>.
+7. Launch Play at the default 9000 port: <code>/PATH-TO-PLAY/play run</code>.
 
-8) Enjoy the seed: [http://localhost:9000](http://localhost:9000) or the following screenshots!
+8. Enjoy the seed: [http://localhost:9000](http://localhost:9000) or the following screenshots!
 
 ## Screenshots
 
@@ -48,8 +48,8 @@ Follow these steps in order to deploy the seed on your machine:
 ### Adding a Celebrity
 ![Adding a Celebrity](./screenshots/Adding%20a%20Celebrity.png)
 
-### Editing a Celebrity
-![Editing a Celebrity](./screenshots/Editing%20a%20Celebrity.png)
+### Editing/Deleting a Celebrity
+![Editing a Celebrity](./screenshots/Editing-Deleting%20a%20Celebrity.png)
 
 ## Licence
 
