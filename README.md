@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This [CRUD](http://en.wikipedia.org/wiki/Create,_read,_update_and_delete) seed project emerged from realizing the confusion the developers’ community has over the hearty combination:
+This [CRUD](http://en.wikipedia.org/wiki/Create,_read,_update_and_delete) seed emerged from realizing the confusion the developers’ community has over the hearty combination:
 * [Play framework](http://www.playframework.com/) and [MongoDB](http://www.mongodb.org/) in the back-end.
 * [AngularJS](http://angularjs.org/) and [Bootstrap](http://getbootstrap.com/) in the front-end.
 
