@@ -34,7 +34,7 @@ app.controller("AppCtrl", ["$scope", "$location", function($scope, $location) {
 // the list controller
 app.controller("ListCtrl", ["$scope", "$resource", "apiUrl", function($scope, $resource, apiUrl) {
 	var Celebrities = $resource(apiUrl + "/celebrities"); // a RESTful-capable resource object
-	$scope.celebrities = Celebrities.query(); // for the list of celebrities in /public/html/main.html
+	$scope.celebrities = Celebrities.query(); // for the list of celebrities in public/html/main.html
 }]);
 
 // the create controller
