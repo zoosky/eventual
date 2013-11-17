@@ -47,7 +47,7 @@ Follow these steps in order to deploy the seed on your machine:
 
 4. Start <code>mongod</code> (the daemon process for the MongoDB system).
 
-5. Create and populate the celebrities’ database using the script <code>eventual/db/script.js</code>.
+5. Create and populate the celebrities’ database using the script <code>/eventual/db/script.js</code>.
 
 6. Go to the root of the project: <code>cd eventual</code>.
 
