@@ -11,11 +11,11 @@ The aim of this seed is to underpin the development of future applications that 
 ## Features
 The seed has the following features (to recall a few):
 
-1. It uses the asynchronous and non-blocking ReactiveMongo driver.
+1. It uses the asynchronous and non-blocking [ReactiveMongo driver](http://reactivemongo.org/).
 
 2. It supports the new HTML5 routing and histoty API (no hashbang, no bullshit).
 
-3. It makes minimal usage of Play Scala templates, thereby clearing the space for AngularJS directives in your HTML.
+3. It makes minimal usage of [Play Scala templates](http://www.playframework.com/documentation/2.1.5/ScalaTemplates), thereby clearing the space for AngularJS directives in your HTML.
 
 4. It cleanly separates between Play routes that serve HTML and those that serve JSON.
 
