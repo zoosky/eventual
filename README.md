@@ -13,9 +13,9 @@ The seed has the following features (to recall a few):
 
 1. It uses the asynchronous and non-blocking [ReactiveMongo driver](http://reactivemongo.org/).
 
-2. It supports the new HTML5 routing and histoty API (no hashbangs, no bullshit).
+2. It supports the new HTML5 routing and histoty API (i.e., no hashbangs, no bullshit).
 
-3. It pack all JavaScript libraries & frameworks inside the solution (no WebJars, no download time, and again no bullshit).
+3. It pack all JavaScript libraries & frameworks inside the solution (i.e., no WebJars, no download time, and again no bullshit).
 
 4. It makes minimal usage of [Play Scala templates](http://www.playframework.com/documentation/2.1.5/ScalaTemplates), thereby clearing the space for AngularJS directives in your HTML.
 
