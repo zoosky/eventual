@@ -9,19 +9,21 @@ The aim of this seed is to underpin the development of future applications that 
 ## Features
 The seed has the following features (to recall a few):
 
-1. It uses the asynchronous and non-blocking [ReactiveMongo driver](http://reactivemongo.org/).
+1. It offers a complete [single-page application](http://en.wikipedia.org/wiki/Single-page_application) experience.
 
-2. It supports the new HTML5 routing and histoty API (i.e., no hashbangs, no bullshit).
+2. It uses the asynchronous and non-blocking [ReactiveMongo driver](http://reactivemongo.org/).
 
-3. It packs JavaScript libraries inside the solution (i.e., no WebJars, no download time, and again no bullshit).
+3. It supports the new HTML5 routing and histoty API (i.e., no hashbangs, no bullshit).
 
-4. It makes minimal usage of [Play Scala templates](http://www.playframework.com/documentation/2.1.5/ScalaTemplates), thereby clearing the space for AngularJS directives in your HTML.
+4. It packs JavaScript libraries inside the solution (i.e., no WebJars, no download time, and again no bullshit).
 
-5. It cleanly separates between Play routes that serve HTML and those that serve JSON.
+5. It makes minimal usage of [Play Scala templates](http://www.playframework.com/documentation/2.1.5/ScalaTemplates), thereby clearing the space for AngularJS directives in your HTML.
 
-6. It cleanly separates and optimally maps AngularJS routes to Play routes.
+6. It cleanly separates between Play routes that serve HTML and those that serve JSON.
 
-7. It conceals Play routes from end-users, thereby ensuring that all pages are properly styled before they are presented.
+7. It cleanly separates and optimally maps AngularJS routes to Play routes.
+
+8. It conceals Play routes from end-users, thereby ensuring that all pages are properly styled before they are presented.
 
 ## Ingredients
 The seed uses the following software components:
