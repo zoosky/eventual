@@ -4,6 +4,9 @@
 
 The Eventual PlayFramework-AngularJS-Bootstrap-MongoDB Seed Project is a seed project that provides a [CRUD](http://en.wikipedia.org/wiki/Create,_read,_update_and_delete) implementation. It uses the [Play Framework](http://www.playframework.com/) and [MongoDB](http://www.mongodb.org/) on the back-end, and [AngularJS](http://angularjs.org/) and [Bootstrap](http://getbootstrap.com/) on the front-end. It is designed to underpin the development of future applications that adopt the same combination of technologies.
 
+##### Note
+[Damiya](https://github.com/Damiya) has made a [version update](https://github.com/Damiya/eventual/commit/47e68fd8385fbe10878507631d2c51602a93b9c9).
+
 ## Features
 The seed has the following features (to recall a few):
 
