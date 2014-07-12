@@ -6,7 +6,7 @@ The Eventual PlayFramework-AngularJS-Bootstrap-MongoDB Seed Project is a seed pr
 
 ## Versioning
 
-The seed uses the versioning <code>p_<pnum>_a_<anum>_b_<bnum><code> where:
+The seed uses the versioning <code>p_<pnum>_a_<anum>_b_<bnum></code> where:
 
 * pnum is Play Framework version
 
