@@ -4,8 +4,15 @@
 
 The Eventual PlayFramework-AngularJS-Bootstrap-MongoDB Seed Project is a seed project that provides a [CRUD](http://en.wikipedia.org/wiki/Create,_read,_update_and_delete) implementation. It uses the [Play Framework](http://www.playframework.com/) and [MongoDB](http://www.mongodb.org/) on the back-end, and [AngularJS](http://angularjs.org/) and [Bootstrap](http://getbootstrap.com/) on the front-end. It is designed to underpin the development of future applications that adopt the same combination of technologies.
 
-##### Note
-An update to Play 2.2 is scheduled soon.
+## Versioning
+
+The seed uses the versioning <code>p\_pnum\_a\_anum_b\_bnum</code> where:
+
+* <code>pnum</code> is Play Framework version
+
+* <code>anum</code> is AngularJS version
+
+* <code>bnum</code> is Bootstrap version
 
 ## Features
 The seed has the following features (to recall a few):
@@ -29,22 +36,22 @@ The seed has the following features (to recall a few):
 ## Ingredients
 The seed uses the following software components:
 
-1. Play Framework 2.1.5
+1. Play Framework 2.2.3
 
-2. MongoDB 2.4.8
+2. MongoDB 2.6.3
 
-3. AngularJS 1.1.5
+3. AngularJS 1.2.19
 
-4. Bootstrap 3.0.2
+4. Bootstrap 3.2.0
 
-5. jQuery 1.10.2 (used by 4)
+5. jQuery 1.11.1 (used by 4)
 
 ## Deployment
 Follow these steps in order to deploy the seed on your machine:
 
-1. Download and extract Play Framework 2.1.5.
+1. Download and extract Play Framework 2.2.3.
 
-2. Download and extract MongoDB 2.4.8.
+2. Download and extract MongoDB 2.6.3.
 
 3. Clone the project: <code>git clone https://github.com/angyjoe/eventual.git</code>.
 
